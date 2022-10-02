@@ -13,9 +13,30 @@
     function pause() {
         dispatch("pause");
     }
+
     function lap() {
-        dispatch("lap");
+        loading = true;
     }
+
+    let value = "";
+    let response = undefined;
+    let loading = false;
+
+    const handleInput = (event) => (value = event.target.value);
+
+    $: if (loading == true) {
+        fetch(
+            `https://apicarreraejemplo.com:443/v1/public/characters?ts=1&name=${value.trim()}&apikey=8479630058c2db43f533ff3d17fb5646&hash=a8500480dfb36b9dda96150c305af8d9`
+        )
+            .then((res) => res.json())
+            .then((json) => {
+                response = json.data.results || [];
+                loading = false;
+                console.log(response);
+            });
+        
+    }
+   
 
     // consider the booleans passed down from App.svelte
     export let subscription;
