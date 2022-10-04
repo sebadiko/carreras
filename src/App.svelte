@@ -89,7 +89,10 @@
 	}
 
 	:global(body) {
-			background: hsl(0, 0%, 99%);
+			background-repeat: no-repeat;
+			background-position-x: left;
+			background-position-y: 50px;
+			background-size: 40px;
 			color: hsl(0, 0%, 0%);
 			font-family: "Open Sans", sans-serif;
 			/* center the .stopwatch container in the viewport */
@@ -113,8 +116,10 @@
 			text-align: center;
 	}
 	:global(.reloj){
-		margin-left: 42%;
+		
+		text-align: center;
 	}
+	
 	
 	/* for devices supporting css grid */
 	/*@supports (display: grid) {
@@ -151,11 +156,11 @@
 	}*/
 </style>
 
+
 <div class= "reloj">
     <!-- pass the number of milliseconds to the stopwatch component -->
     <Stopwatch {lapse} />
     <!-- pass the array of laps to the laps component -->
-
 </div>
 
 <div class="stopwatch">
