@@ -116,8 +116,10 @@
 			text-align: center;
 	}
 	:global(.reloj){
-		
 		text-align: center;
+	}
+	:global(.scroll){
+		overflow-y: scroll;
 	}
 	
 	
@@ -163,11 +165,14 @@
     <!-- pass the array of laps to the laps component -->
 </div>
 
-<div class="stopwatch">
-    <Laps {laps} />
-    <!-- following the events disaptched from the controls component call the start/pause/stop/lap function
-    pass the necessary booleans to display the correct button(s)
-    -->
-	<Controls on:start={start} on:stop={stop} on:pause={pause} on:lap={lap} {subscription} {lapsed} />
+<div class="scroll">
+	<div class="stopwatch">
+		<Laps {laps} />
+		<!-- following the events disaptched from the controls component call the start/pause/stop/lap function
+		pass the necessary booleans to display the correct button(s)
+		-->
+		<Controls on:start={start} on:stop={stop} on:lap={lap} {subscription} {lapsed} />
+	</div>
 </div>
+
 
