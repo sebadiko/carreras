@@ -17,6 +17,15 @@
     function lap() {
         loading = true;
     }
+    function lap1() {
+        loading = true;
+    }
+    function lap2() {
+        loading = true;
+    }
+    function lap3() {
+        loading = true;
+    }
 
     let value = "";
     let response = undefined;
@@ -34,7 +43,7 @@
                 loading = false;
                 console.log(response);
             });
-        
+         
     }
    
 
@@ -59,7 +68,7 @@
         border: none;
         background: none;
         border-radius: inherit;
-        margin: 0; /* by default svelte applies a margin to the bottom of the button */
+        margin: 0; /* by default svelte applies a margin to the bottom of the button*/
         transition: background 0.2s ease-out;
     }
     /* include a border on all button but the first, to avoid a border when only one element exist */
@@ -84,8 +93,10 @@ subscription -> Lap & pause
 -->
 <div class="controls">
     {#if subscription}
-    <button on:click="{lap}">Lap</button>
-    <button on:click="{pause}">Pause</button>
+    <button on:click="{lap}">Vuelta</button>
+    <button on:click="{lap1}">Vuelta</button>
+    <button on:click="{lap2}">Vuelta</button>
+    <button on:click="{lap3}">Vuelta</button>
     {:else if lapsed}
     <button on:click="{stop}">Reset</button>
     <button on:click="{start}">Continue</button>
@@ -93,3 +104,8 @@ subscription -> Lap & pause
     <button on:click="{start}">Start</button>
     {/if}
 </div>
+
+<div>
+    <button on:click="{pause}">Pause</button>
+</div>
+

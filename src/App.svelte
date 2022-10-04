@@ -96,7 +96,6 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: left;
-			align-items: left;
 			min-height: 100vh;
 	}
 	
@@ -104,25 +103,33 @@
 	:global(.stopwatch) {
 			display: flex;
 			flex-direction: column;
+			text-align: center;
+			
 	}
 	:global(.stopwatch > * + *) {
 			margin-top: 0.75rem;
+			padding-left: 500px;
+			padding-right: 500px;
+			text-align: center;
+	}
+	:global(.reloj){
+		margin-left: 42%;
 	}
 	
 	/* for devices supporting css grid */
-	@supports (display: grid) {
-			/* for larger viewports */
+	/*@supports (display: grid) {
+			/* for larger viewports 
 			@media (min-width: 600px) {
 					/* display the svg, ul and .controls in a grid
 
 				|   svg  |  ul           |
 				|   svg  |   .controls   |
-			*/
+			
 					:global(.stopwatch) {
 							display: grid;
-							grid-gap: 20px 50px;
-							grid-template-columns: 300px 250px;
-							grid-template-rows: 225px auto;
+							grid-gap: 100px 50px;
+							grid-template-columns: 100px 500px;
+							grid-template-rows: 100px auto;
 							grid-template-areas: "watch list" "watch controls";
 							justify-content: space-between;
 					}
@@ -141,17 +148,21 @@
 							margin-top: 0;
 					}
 			}
-	}
-
+	}*/
 </style>
 
-<div class="stopwatch">
+<div class= "reloj">
     <!-- pass the number of milliseconds to the stopwatch component -->
     <Stopwatch {lapse} />
     <!-- pass the array of laps to the laps component -->
+
+</div>
+
+<div class="stopwatch">
     <Laps {laps} />
     <!-- following the events disaptched from the controls component call the start/pause/stop/lap function
     pass the necessary booleans to display the correct button(s)
     -->
 	<Controls on:start={start} on:stop={stop} on:pause={pause} on:lap={lap} {subscription} {lapsed} />
 </div>
+
