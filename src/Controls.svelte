@@ -82,7 +82,7 @@
         outline-color: hsl(0, 0%, 0%);
     }
     .team:hover{
-        background-color: rgb(0, 161, 40);
+        background-color: rgb(197, 197, 197);
     }
 
     .reset:focus{
@@ -95,6 +95,10 @@
     .contador{
         border: none;
         padding-left: 50%;
+    }
+    .nada{
+        border: 0;
+        text-align: center;
     }
 
 
@@ -113,18 +117,19 @@ subscription -> Lap & pause
    </h2>     
 </div>
 <div class="controls">
-    {#if subscription}
-    <button class="team" on:click="{lap}">Equipo x</button>
-    {:else if lapsed}
-
-    <button on:click="{start}">Continue</button>
-    {:else}
     <button on:click="{start}">Iniciar carrera</button>
-    {/if}
 </div>
 
 <div class="reset">
     <button on:click="{stop}">Terminar carrera</button>
+</div>
+
+<div class="nada">
+    {#if subscription}
+    <button class="team" on:click="{lap}">Equipo x</button>
+    {:else}
+    <h4> </h4>
+    {/if}
 </div>
 
 

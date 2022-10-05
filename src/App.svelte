@@ -121,6 +121,7 @@
 	:global(.scroll){
 		overflow-y: scroll;
 	}
+
 	
 	
 	/* for devices supporting css grid */
@@ -160,9 +161,9 @@
 
 
 <div class= "reloj">
-    <!-- pass the number of milliseconds to the stopwatch component -->
-    <Stopwatch {lapse} />
-    <!-- pass the array of laps to the laps component -->
+	<!-- pass the number of milliseconds to the stopwatch component -->
+	<Stopwatch {lapse} />
+	<!-- pass the array of laps to the laps component -->
 </div>
 
 <div class="scroll">
@@ -174,5 +175,6 @@
 		<Controls on:start={start} on:stop={stop} on:lap={lap} {subscription} {lapsed} />
 	</div>
 </div>
+
 
 
